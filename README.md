@@ -10,51 +10,51 @@
 
 ---
 
-## 🎯 ASSIGNMENT OBJECTIVE
+## ASSIGNMENT OBJECTIVE
 
 Configure a complete **GitHub Actions CI/CD workflow** to automate:
-1. ✅ Building Docker containers for the application
-2. ✅ Pushing containers to DockerHub registry
-3. ✅ Deploying containers on Render.com automatically
-4. ✅ Triggering redeployments via Render webhooks
+1. Building Docker containers for the application
+2. Pushing containers to DockerHub registry
+3. Deploying containers on Render.com automatically
+4. Triggering redeployments via Render webhooks
 
 ---
 
-## 🚀 DEPLOYMENT STATUS
+## DEPLOYMENT STATUS
 
-**✅ ASSIGNMENT 3 COMPLETE - FULL CI/CD AUTOMATION IMPLEMENTED**
+**ASSIGNMENT 3 COMPLETE - FULL CI/CD AUTOMATION IMPLEMENTED**
 
 ### Live Services (May 14, 2026)
 
 | Service | URL | Status | Auto-Deploy |
 |---------|-----|--------|---|
-| **Frontend** | https://fe-todo-02250377.onrender.com | 🟢 Deployed | ✅ GitHub Actions |
-| **Backend API** | https://be-todo-02250377.onrender.com | 🟢 Deployed | ✅ GitHub Actions |
-| **DockerHub Frontend** | twglhamo/todo-app-frontend | 🟢 Public | ✅ Automated |
-| **DockerHub Backend** | twglhamo/todo-app-backend | 🟢 Public | ✅ Automated |
+| **Frontend** | https://fe-todo-02250377.onrender.com |  Deployed |  GitHub Actions |
+| **Backend API** | https://be-todo-02250377.onrender.com | Deployed |  GitHub Actions |
+| **DockerHub Frontend** | twglhamo/todo-app-frontend |  Public | Automated |
+| **DockerHub Backend** | twglhamo/todo-app-backend |  Public |  Automated |
 
 ---
 
-## 📋 STEPS TAKEN
+## STEPS TAKEN
 
 ### **Step 1: Repository Preparation**
-- ✅ Cloned Assignment 1 to-do application to Assignment 3 workspace
-- ✅ Verified GitHub repository is **public** (https://github.com/twglhamo/TshewangLhamo_02250377_DSO101_A3)
-- ✅ Confirmed `package.json` files contain required scripts:
+-  Cloned Assignment 1 to-do application to Assignment 3 workspace
+-  Verified GitHub repository is **public** (https://github.com/twglhamo/TshewangLhamo_02250377_DSO101_A3)
+-  Confirmed `package.json` files contain required scripts:
   - Backend: `start`, `dev`, `test` scripts
   - Frontend: `build`, `dev`, `lint`, `preview` scripts
 
 ### **Step 2: Dockerfiles Update**
-- ✅ Updated backend Dockerfile to use `node:20-alpine` (as per assignment requirements)
-- ✅ Fixed Dockerfile COPY paths to work with GitHub Actions build context:
+- Updated backend Dockerfile to use `node:20-alpine` (as per assignment requirements)
+- Fixed Dockerfile COPY paths to work with GitHub Actions build context:
   ```dockerfile
   COPY backend/package*.json ./
   COPY backend/ .
   ```
-- ✅ Frontend Dockerfile already properly configured with multi-stage build
+- Frontend Dockerfile already properly configured with multi-stage build
 
 ### **Step 3: GitHub Actions Workflow Creation**
-- ✅ Created `.github/workflows/deploy.yml` with the following stages:
+-  Created `.github/workflows/deploy.yml` with the following stages:
   1. **Checkout Code** - Retrieve repository contents
   2. **Setup Docker Buildx** - Enable multi-platform builds
   3. **Login to DockerHub** - Authenticate using secrets
@@ -77,38 +77,38 @@ Added four required secrets to GitHub repository (Settings → Secrets and varia
 | `RENDER_DEPLOY_WEBHOOK_FRONTEND` | Webhook URL to trigger frontend redeployment |
 
 ### **Step 5: Retrieve Render Deploy Hooks**
-- ✅ Accessed each Render service (backend and frontend)
-- ✅ Navigated to Settings → Deploy Hook
-- ✅ Copied webhook URLs and added them as GitHub Secrets
+-  Accessed each Render service (backend and frontend)
+-  Navigated to Settings → Deploy Hook
+-  Copied webhook URLs and added them as GitHub Secrets
 
 ### **Step 6: Test CI/CD Pipeline**
-- ✅ Made code changes and pushed to `main` branch
-- ✅ GitHub Actions workflow **automatically triggered**
-- ✅ Docker images successfully built and pushed to DockerHub
-- ✅ Render services redeployed automatically via webhooks
-- ✅ All services functioning without manual intervention
+-  Made code changes and pushed to `main` branch
+-  GitHub Actions workflow **automatically triggered**
+-  Docker images successfully built and pushed to DockerHub
+-  Render services redeployed automatically via webhooks
+-  All services functioning without manual intervention
 
 ---
 
-## 🖼️ PROOF: SCREENSHOTS
+## PROOF: SCREENSHOTS
 
-### 1️⃣ DockerHub Token Creation
+### 1️ DockerHub Token Creation
 ![DockerHub Token Creation](image/1.png)
 *Creating a personal access token for GitHub Actions authentication*
 
-### 2️⃣ DockerHub Tokens Configuration
+### 2️ DockerHub Tokens Configuration
 ![DockerHub Tokens](image/2.png)
 *Configured "github-actions" token with Read & Write permissions*
 
-### 3️⃣ GitHub Secrets Configuration (Part 1)
+### 3️ GitHub Secrets Configuration (Part 1)
 ![GitHub Secrets - DockerHub Credentials](image/3.png)
 *Added DOCKERHUB_TOKEN and DOCKERHUB_USERNAME as GitHub Secrets*
 
-### 4️⃣ Render Deploy Hook Configuration
+### 4 Render Deploy Hook Configuration
 ![Render Deploy Hook](image/4.png)
 *Retrieved deploy hook from Render service settings*
 
-### 5️⃣ GitHub Secrets Configuration (Complete)
+### 5️ GitHub Secrets Configuration (Complete)
 ![GitHub Secrets - All Four Secrets](image/5.png)
 *All four required secrets configured:*
 - DOCKERHUB_TOKEN
@@ -116,29 +116,29 @@ Added four required secrets to GitHub repository (Settings → Secrets and varia
 - RENDER_DEPLOY_WEBHOOK_BACKEND
 - RENDER_DEPLOY_WEBHOOK_FRONTEND
 
-### 6️⃣ GitHub Actions Workflow Runs
+### 6️ GitHub Actions Workflow Runs
 ![GitHub Actions Successful Runs](image/6.png)
 *GitHub Actions dashboard showing successful workflow executions:*
-- ✅ "token access" run - Commit 77a7742
-- ✅ "fix: Correct backend Dockerfile COPY paths..." run
+-  "token access" run - Commit 77a7742
+-  "fix: Correct backend Dockerfile COPY paths..." run
 - Both runs completed successfully in 53 seconds
 
-### 7️⃣ DockerHub Pushed Images
+### 7️ DockerHub Pushed Images
 ![DockerHub Repositories](image/7.png)
 *Docker images successfully pushed to DockerHub:*
-- ✅ **twglhamo/todo-app-frontend** - Pushed 4 minutes ago
-- ✅ **twglhamo/todo-app-backend** - Pushed 4 minutes ago
+-  **twglhamo/todo-app-frontend** - Pushed 4 minutes ago
+-  **twglhamo/todo-app-backend** - Pushed 4 minutes ago
 - Both marked as **Public**
 
-### 8️⃣ Render Services Redeployed
+### 8️ Render Services Redeployed
 ![Render Services Status](image/8.png)
 *Render dashboard showing deployed services:*
-- ✅ **fe-todo-02250377** - Status: **Deployed** (Docker runtime)
-- ✅ **be-todo-02250377** - Status: **Deployed** (Docker runtime)
+-  **fe-todo-02250377** - Status: **Deployed** (Docker runtime)
+-  **be-todo-02250377** - Status: **Deployed** (Docker runtime)
 - Updated: 3 minutes ago
 - Both running in Singapore region
 
-### 9️⃣ Backend API Health Check
+### 9️ Backend API Health Check
 ![Backend API Response](image/9.png)
 *Backend API endpoint verification:*
 ```json
@@ -146,7 +146,7 @@ GET https://be-todo-02250377.onrender.com
 Response: {"status":"ok"}
 ```
 
-### 🔟 Frontend Application Running
+### 10 Frontend Application Running
 ![Frontend Application](image/10.png)
 *Frontend application successfully deployed and running:*
 - Title: "My To-Do List check"
@@ -156,7 +156,7 @@ Response: {"status":"ok"}
 
 ---
 
-## ⚠️ CHALLENGES FACED
+## CHALLENGES FACED
 
 ### **Challenge 1: Docker Build Context Paths**
 **Problem:** Initial workflow failed with error:
@@ -198,7 +198,7 @@ Node.js 20 actions are deprecated. The following actions are running on Node.js 
 
 ---
 
-## 📚 LEARNING OUTCOMES
+## LEARNING OUTCOMES
 
 ### 1. **GitHub Actions Automation**
 - Learned how GitHub Actions workflows trigger on events (push, pull request, etc.)
@@ -238,7 +238,7 @@ Node.js 20 actions are deprecated. The following actions are running on Node.js 
 
 ---
 
-## 🔄 HOW THE CI/CD PIPELINE WORKS
+## HOW THE CI/CD PIPELINE WORKS
 
 ### **Workflow Trigger**
 ```
@@ -280,14 +280,14 @@ GitHub Actions workflow triggered
 ```
 
 ### **Result**
-- ✅ Production deployment completed in ~2-3 minutes
-- ✅ Zero manual intervention required
-- ✅ Consistent, repeatable deployments
-- ✅ Full audit trail in GitHub
+-  Production deployment completed in ~2-3 minutes
+-  Zero manual intervention required
+-  Consistent, repeatable deployments
+-  Full audit trail in GitHub
 
 ---
 
-## ✅ VERIFICATION
+## VERIFICATION
 
 ### **Test: Push Code Changes**
 ```bash
@@ -321,7 +321,7 @@ git push origin main
 
 ---
 
-## 📁 PROJECT STRUCTURE
+##  PROJECT STRUCTURE
 
 ```
 TshewangLhamo_02250377_DSO101_A3/
@@ -357,7 +357,7 @@ TshewangLhamo_02250377_DSO101_A3/
 
 ---
 
-## 🔗 IMPORTANT LINKS
+##  IMPORTANT LINKS
 
 ### **Repository & Code**
 - GitHub Repository: https://github.com/twglhamo/TshewangLhamo_02250377_DSO101_A3
@@ -380,21 +380,17 @@ TshewangLhamo_02250377_DSO101_A3/
 
 ---
 
-## 📝 CONCLUSION
+##  CONCLUSION
 
 This assignment successfully demonstrated a **production-grade CI/CD pipeline** that:
 
-✅ **Automates the entire deployment process** from code push to live application  
-✅ **Eliminates manual deployment steps** reducing human error  
-✅ **Provides traceability** with GitHub commit history linking to deployments  
-✅ **Ensures consistency** by using containerized environments  
-✅ **Implements security best practices** with encrypted secrets management  
-✅ **Enables rapid iteration** with deployments in 2-3 minutes  
+ **Automates the entire deployment process** from code push to live application  
+ **Eliminates manual deployment steps** reducing human error  
+ **Provides traceability** with GitHub commit history linking to deployments  
+ **Ensures consistency** by using containerized environments  
+ **Implements security best practices** with encrypted secrets management  
+ **Enables rapid iteration** with deployments in 2-3 minutes  
 
 The pipeline demonstrates real-world DevOps practices used by major tech companies to maintain reliability and velocity in production systems.
 
----
 
-**Submitted by:** Tshewang Lhamo  
-**Date:** May 14, 2026  
-**Status:** ✅ COMPLETE AND VERIFIED
